@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "consumer": "app/AgentDesk.tsx and services/xianyu-worker/main.py",
+  "always_expected": {
+    "intent": "string",
+    "confidence": "number",
+    "reply": "string",
+    "rewritten_query": "string",
+    "evidence": "array",
+    "stages": "array"
+  },
+  "normal_completion": {
+    "strategy": "object",
+    "reply_policy": "object",
+    "retrieval_mode": "string",
+    "embedding_status": "string",
+    "tool_calls": "array",
+    "tool_status": "string",
+    "total_latency_ms": "number"
+  },
+  "handoff_completion": {
+    "handoff_required": "boolean",
+    "handoff_reason": "string"
+  },
+  "tool_call_item": {
+    "name": "string",
+    "status": "string",
+    "result": "object"
+  },
+  "compatibility_notes": [
+    "reply='-' means no automatic reply or handoff",
+    "tool_status values currently consumed by the UI include completed, fast_mode and not_configured",
+    "main.py reads intent through PipelineReplyBot.last_intent and handoff_required through PipelineReplyBot.handoff_required"
+  ]
+}

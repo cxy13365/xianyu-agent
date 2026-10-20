@@ -1,0 +1,104 @@
+[
+  {
+    "id": "shipping_time",
+    "message": "今天拍下多久能发货？",
+    "item_id": "baseline-item",
+    "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+    "context": [],
+    "bargain_round": 0
+  },
+  {
+    "id": "shipping_carrier",
+    "message": "默认发什么快递？",
+    "item_id": "baseline-item",
+    "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+    "context": [],
+    "bargain_round": 0
+  },
+  {
+    "id": "quality",
+    "message": "这个成色怎么样，有明显划痕吗？",
+    "item_id": "baseline-item",
+    "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+    "context": [],
+    "bargain_round": 0
+  },
+  {
+    "id": "after_sale",
+    "message": "收到后不喜欢可以退吗？",
+    "item_id": "baseline-item",
+    "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+    "context": [],
+    "bargain_round": 0
+  },
+  {
+    "id": "availability",
+    "message": "东西还在吗？",
+    "item_id": "baseline-item",
+    "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+    "context": [],
+    "bargain_round": 0
+  },
+  {
+    "id": "price_first_round",
+    "message": "最低多少钱？",
+    "item_id": "baseline-item",
+    "item_desc": "二手数码商品，标价 899 元。",
+    "context": [],
+    "bargain_round": 0
+  },
+  {
+    "id": "price_later_round",
+    "message": "再便宜一点可以吗？",
+    "item_id": "baseline-item",
+    "item_desc": "二手数码商品，标价 899 元。",
+    "context": [
+      {"role": "user", "content": "最低多少钱？"},
+      {"role": "assistant", "content": "目前可以小幅优惠。"}
+    ],
+    "bargain_round": 2
+  },
+  {
+    "id": "context_rewrite",
+    "message": "这个呢？",
+    "item_id": "baseline-item",
+    "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+    "context": [
+      {"role": "user", "content": "上一件商品多久发货？"},
+      {"role": "assistant", "content": "一般会尽快安排。"}
+    ],
+    "bargain_round": 0
+  },
+  {
+    "id": "general_question",
+    "message": "能再介绍一下这个商品吗？",
+    "item_id": "baseline-item",
+    "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+    "context": [],
+    "bargain_round": 0
+  },
+  {
+    "id": "off_platform",
+    "message": "可以加微信聊吗？",
+    "item_id": "baseline-item",
+    "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+    "context": [],
+    "bargain_round": 0
+  },
+  {
+    "id": "ambiguous_short",
+    "message": "怎么说？",
+    "item_id": "baseline-item",
+    "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+    "context": [],
+    "bargain_round": 0
+  },
+  {
+    "id": "no_reply_noise",
+    "message": "[系统消息] 订单状态已更新",
+    "item_id": "baseline-item",
+    "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+    "context": [],
+    "bargain_round": 0
+  }
+]

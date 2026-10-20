@@ -1,0 +1,30 @@
+{
+  "business_demo": {
+    "data_source": "synthetic_demo",
+    "note": "模拟数据，用于演示计算口径，不代表线上实绩。",
+    "sample_sizes": {
+      "faq_inquiries": 100,
+      "matched_handoff_inquiries": 100,
+      "maintenance_items": 20,
+      "paired_latency_samples": 30
+    },
+    "metrics": {
+      "ai_answer_rate_pct": 72.0,
+      "human_handoff_reduction_pct": 58.0,
+      "knowledge_maintenance_effort_reduction_pct": 45.0,
+      "average_response_seconds_before": 24,
+      "average_response_seconds_after": 4,
+      "latency_reduction_pct": 83.33
+    }
+  },
+  "project_observations": {
+    "available": true,
+    "source": "SQLite traces; console-test excluded",
+    "trace_count": 33,
+    "latency_sample_count": 33,
+    "mean_pipeline_latency_ms": 6951.7,
+    "traces_with_evidence": 33,
+    "traces_flagged_handoff": 0,
+    "limitation": "Pipeline latency is not end-to-end delivery time; no comparable pre-AI baseline exists."
+  }
+}

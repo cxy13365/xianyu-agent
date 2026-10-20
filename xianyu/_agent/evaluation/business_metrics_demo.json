@@ -1,0 +1,9 @@
+{
+  "dataset_name": "客服指标演示评测集",
+  "data_source": "synthetic_demo",
+  "note": "模拟数据，用于演示计算口径，不代表线上实绩。",
+  "common_faq": {"eligible_inquiries":100,"ai_resolved_without_human":72},
+  "human_handoff": {"matched_inquiries_before_ai":100,"human_handoffs_before_ai":100,"matched_inquiries_after_ai":100,"human_handoffs_after_ai":42},
+  "knowledge_maintenance": {"matched_work_items":20,"manual_minutes_before_ai":600,"manual_minutes_after_ai":330},
+  "response_latency": {"baseline_seconds":[24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24,24],"ai_seconds":[4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]}
+}

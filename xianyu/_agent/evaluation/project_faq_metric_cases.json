@@ -1,0 +1,10 @@
+[
+  {"query":"今天拍下多久能寄出","relevant":[{"scene":"发货时效"}],"required_phrases":["72 小时","发出"],"forbidden_phrases":[]},
+  {"query":"拍下来后多久发货","relevant":[{"scene":"发货时效"}],"required_phrases":["72 小时","发出"],"forbidden_phrases":[]},
+  {"query":"你们默认发哪家快递","relevant":[{"scene":"发货","question_contains":"快递"}],"required_phrases":["圆通","申通"],"forbidden_phrases":[]},
+  {"query":"可以选什么快递寄出","relevant":[{"scene":"发货","question_contains":"快递"}],"required_phrases":["圆通","申通"],"forbidden_phrases":[]},
+  {"query":"收到后不喜欢可以退吗","relevant":[{"scene":"售后边界"}],"required_phrases":["非质量问题不退","验货"],"forbidden_phrases":[]},
+  {"query":"没有质量问题能退货吗","relevant":[{"scene":"售后边界"}],"required_phrases":["非质量问题不退","验货"],"forbidden_phrases":[]},
+  {"query":"这个商品的成色和状态怎么样","relevant":[{"scene":"商品成色"},{"scene":"通用","question_contains":"状态"}],"required_phrases":["实拍"],"forbidden_phrases":[]},
+  {"query":"商品有瑕疵吗，怎么看状态","relevant":[{"scene":"商品成色"},{"scene":"通用","question_contains":"状态"}],"required_phrases":["实拍"],"forbidden_phrases":[]}
+]

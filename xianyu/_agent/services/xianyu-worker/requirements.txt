@@ -1,0 +1,15 @@
+fastapi==0.116.1
+uvicorn[standard]==0.35.0
+python-multipart==0.0.20
+openpyxl==3.1.5
+openai==1.109.1
+langchain==1.0.8
+langchain-openai==1.0.3
+langgraph==1.0.10
+langgraph-prebuilt==1.0.8
+langgraph-checkpoint-sqlite==3.1.1
+websockets==13.1
+loguru==0.7.3
+python-dotenv==1.0.1
+requests==2.32.3
+fastembed==0.8.0

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 5,
+    "scene": "发货",
+    "question": "发什么快递？",
+    "answer": "一般是圆通和申通，需要其他发货方式请提前说明",
+    "keywords": "",
+    "enabled": true
+  },
+  {
+    "id": 4,
+    "scene": "通用",
+    "question": "状态如何",
+    "answer": "状态以视频和实拍图片为准，默认瑕疵",
+    "keywords": "状态、成色、捏痕、全新",
+    "enabled": true
+  },
+  {
+    "id": 3,
+    "scene": "售后边界",
+    "question": "可以退货吗？",
+    "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+    "keywords": "退货 售后 质量",
+    "enabled": true
+  },
+  {
+    "id": 2,
+    "scene": "商品成色",
+    "question": "状态如何？",
+    "answer": "状态和手感以实拍图和视频为准，默认瑕疵。",
+    "keywords": "成色 瑕疵 划痕 磕碰",
+    "enabled": true
+  },
+  {
+    "id": 1,
+    "scene": "发货时效",
+    "question": "今天拍下什么时候发货？",
+    "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+    "keywords": "发货 快递 今天",
+    "enabled": true
+  }
+]

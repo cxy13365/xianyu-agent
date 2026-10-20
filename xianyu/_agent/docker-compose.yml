@@ -1,0 +1,13 @@
+services:
+  xianyu-worker:
+    build: ./services/xianyu-worker
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8787:8787"
+    volumes:
+      - ./data:/app/data
+    env_file:
+      - ./services/xianyu-worker/.env
+    environment:
+      HOST: 0.0.0.0
+      DATA_DIR: /app/data

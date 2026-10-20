@@ -1,0 +1,1682 @@
+[
+  {
+    "case_id": 1,
+    "category": "shipping_time",
+    "query": "今天拍下多久能发货",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 2,
+    "category": "shipping_time",
+    "query": "今天拍下多久寄出",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 3,
+    "category": "shipping_time",
+    "query": "下单以后一般几小时发出",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 4,
+    "category": "shipping_time",
+    "query": "下单后最晚什么时候发货",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 5,
+    "category": "shipping_time",
+    "query": "我现在拍大概什么时候能寄",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 6,
+    "category": "shipping_time",
+    "query": "今天下单预计多久发出",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 7,
+    "category": "shipping_time",
+    "query": "下单后要等多久才发货",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 8,
+    "category": "shipping_time",
+    "query": "付款后多久能发",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 9,
+    "category": "shipping_time",
+    "query": "平时多久可以寄出",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 10,
+    "category": "shipping_time",
+    "query": "正常发货时效是多久",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 11,
+    "category": "shipping_time",
+    "query": "急用的话当天能不能发",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 12,
+    "category": "shipping_time",
+    "query": "什么时候能安排快递",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 13,
+    "category": "shipping_time",
+    "query": "拍下商品后几小时内发货",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 14,
+    "category": "shipping_time",
+    "query": "付款后多长时间发出",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 15,
+    "category": "shipping_time",
+    "query": "今天买什么时候能寄",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 16,
+    "category": "shipping_time",
+    "query": "一般几天内可以发货",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 17,
+    "category": "shipping_time",
+    "query": "下单后多久交给快递",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 18,
+    "category": "shipping_time",
+    "query": "拍下后多久能发出",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 19,
+    "category": "shipping_time",
+    "query": "发货大概需要等几天",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 20,
+    "category": "shipping_time",
+    "query": "发货时间通常是多久",
+    "relevant": [
+      {
+        "scene": "发货时效"
+      }
+    ],
+    "required_phrases": [
+      "72 小时",
+      "发出"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 21,
+    "category": "shipping_carrier",
+    "query": "默认用什么快递发",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 22,
+    "category": "shipping_carrier",
+    "query": "发货走哪家快递",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 23,
+    "category": "shipping_carrier",
+    "query": "你们一般发哪家快递",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 24,
+    "category": "shipping_carrier",
+    "query": "能用圆通还是申通",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 25,
+    "category": "shipping_carrier",
+    "query": "店里默认快递是哪家",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 26,
+    "category": "shipping_carrier",
+    "query": "一般是圆通还是申通",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 27,
+    "category": "shipping_carrier",
+    "query": "买了之后用哪个快递寄",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 28,
+    "category": "shipping_carrier",
+    "query": "发货物流是哪一家",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 29,
+    "category": "shipping_carrier",
+    "query": "通常通过什么快递发出",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 30,
+    "category": "shipping_carrier",
+    "query": "可以告诉我发货公司吗",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 31,
+    "category": "shipping_carrier",
+    "query": "你们默认发哪家快递",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 32,
+    "category": "shipping_carrier",
+    "query": "寄件一般选什么快递",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 33,
+    "category": "shipping_carrier",
+    "query": "请问商品走什么物流",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 34,
+    "category": "shipping_carrier",
+    "query": "下单后会用哪家快递",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 35,
+    "category": "shipping_carrier",
+    "query": "发货是圆通还是申通",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 36,
+    "category": "shipping_carrier",
+    "query": "默认快递公司是什么",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 37,
+    "category": "shipping_carrier",
+    "query": "你们发货用哪家物流",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 38,
+    "category": "shipping_carrier",
+    "query": "一般用哪种快递寄出",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 39,
+    "category": "shipping_carrier",
+    "query": "可以指定快递吗默认是哪家",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 40,
+    "category": "shipping_carrier",
+    "query": "这边通常发什么快递",
+    "relevant": [
+      {
+        "scene": "发货",
+        "question_contains": "快递"
+      }
+    ],
+    "required_phrases": [
+      "圆通",
+      "申通"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 41,
+    "category": "return_policy",
+    "query": "收到后不喜欢可以退吗",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 42,
+    "category": "return_policy",
+    "query": "没有质量问题能退货吗",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 43,
+    "category": "return_policy",
+    "query": "到手后觉得不合适支持退吗",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 44,
+    "category": "return_policy",
+    "query": "商品不满意可以申请退货吗",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 45,
+    "category": "return_policy",
+    "query": "非质量问题能不能退",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 46,
+    "category": "return_policy",
+    "query": "签收后可以反悔退货吗",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 47,
+    "category": "return_policy",
+    "query": "收到货不想要了能退吗",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 48,
+    "category": "return_policy",
+    "query": "二手商品支持无理由退货吗",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 49,
+    "category": "return_policy",
+    "query": "如果只是个人原因可以退吗",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 50,
+    "category": "return_policy",
+    "query": "质量没问题但不喜欢能退吗",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 51,
+    "category": "return_policy",
+    "query": "不合适可以退回去吗",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 52,
+    "category": "return_policy",
+    "query": "签收后多久需要验货",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 53,
+    "category": "return_policy",
+    "query": "收到商品后要不要马上检查",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 54,
+    "category": "return_policy",
+    "query": "商品无瑕疵可以退吗",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 55,
+    "category": "return_policy",
+    "query": "买家原因退货可以吗",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 56,
+    "category": "return_policy",
+    "query": "收到货发现问题该怎么处理",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 57,
+    "category": "return_policy",
+    "query": "到货后验货有什么要求",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 58,
+    "category": "return_policy",
+    "query": "可以七天无理由退货吗",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 59,
+    "category": "return_policy",
+    "query": "不喜欢这个商品售后怎么处理",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 60,
+    "category": "return_policy",
+    "query": "签收后发现问题要及时做什么",
+    "relevant": [
+      {
+        "scene": "售后边界"
+      }
+    ],
+    "required_phrases": [
+      "非质量问题不退",
+      "验货"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 61,
+    "category": "condition",
+    "query": "这个商品的成色和状态怎么样",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 62,
+    "category": "condition",
+    "query": "商品有瑕疵吗怎么看状态",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 63,
+    "category": "condition",
+    "query": "这件东西成色如何",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 64,
+    "category": "condition",
+    "query": "外观状态以什么为准",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 65,
+    "category": "condition",
+    "query": "商品划痕磕碰情况怎么样",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 66,
+    "category": "condition",
+    "query": "有捏痕或者明显瑕疵吗",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 67,
+    "category": "condition",
+    "query": "能看看实物成色吗",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 68,
+    "category": "condition",
+    "query": "商品状态是全新的吗",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 69,
+    "category": "condition",
+    "query": "成色和手感怎么样",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 70,
+    "category": "condition",
+    "query": "物品有无划痕瑕疵",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 71,
+    "category": "condition",
+    "query": "实物状态可以看哪里",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 72,
+    "category": "condition",
+    "query": "商品新旧程度如何判断",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 73,
+    "category": "condition",
+    "query": "有没有瑕疵请说明一下",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 74,
+    "category": "condition",
+    "query": "商品外观成色怎么样",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 75,
+    "category": "condition",
+    "query": "这件商品的实际状态如何",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 76,
+    "category": "condition",
+    "query": "状态和手感以什么为准",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 77,
+    "category": "condition",
+    "query": "商品有没有磕碰痕迹",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 78,
+    "category": "condition",
+    "query": "成色是否和图片一致",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 79,
+    "category": "condition",
+    "query": "可以通过视频看商品状态吗",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 80,
+    "category": "condition",
+    "query": "商品默认按什么成色描述",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 81,
+    "category": "condition_newness",
+    "query": "这个是全新的吗",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 82,
+    "category": "condition_newness",
+    "query": "商品是不是未拆封的",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 83,
+    "category": "condition_newness",
+    "query": "有使用痕迹吗",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 84,
+    "category": "condition_newness",
+    "query": "买来以后用过没有",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 85,
+    "category": "condition_newness",
+    "query": "商品看上去新不新",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 86,
+    "category": "condition_newness",
+    "query": "这是二手还是全新的",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 87,
+    "category": "condition_newness",
+    "query": "外观有没有使用痕迹",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 88,
+    "category": "condition_newness",
+    "query": "能确认商品是不是全新吗",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 89,
+    "category": "condition_newness",
+    "query": "物品有没有磨损",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 90,
+    "category": "condition_newness",
+    "query": "表面划痕多不多",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 91,
+    "category": "condition_newness",
+    "query": "实物跟照片成色一样吗",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 92,
+    "category": "condition_newness",
+    "query": "商品有没有明显损伤",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 93,
+    "category": "condition_newness",
+    "query": "是不是全新未使用",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 94,
+    "category": "condition_newness",
+    "query": "能介绍一下新旧程度吗",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 95,
+    "category": "condition_newness",
+    "query": "图里看起来很新实际呢",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 96,
+    "category": "condition_newness",
+    "query": "是否存在小缺陷或瑕疵",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 97,
+    "category": "condition_newness",
+    "query": "有无需要特别说明的成色问题",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 98,
+    "category": "condition_newness",
+    "query": "商品的实际磨损情况如何",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 99,
+    "category": "condition_newness",
+    "query": "能发视频确认商品成色吗",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  },
+  {
+    "case_id": 100,
+    "category": "condition_newness",
+    "query": "商品状态以什么资料为准",
+    "relevant": [
+      {
+        "scene": "商品成色"
+      },
+      {
+        "scene": "通用",
+        "question_contains": "状态"
+      }
+    ],
+    "required_phrases": [
+      "实拍",
+      "瑕疵"
+    ],
+    "forbidden_phrases": []
+  }
+]

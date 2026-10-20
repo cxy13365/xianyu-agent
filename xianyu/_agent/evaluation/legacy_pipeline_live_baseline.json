@@ -1,0 +1,1798 @@
+{
+  "schema_version": 1,
+  "pipeline": "legacy-pre-langchain",
+  "mode": "live",
+  "provider": {
+    "configured": true,
+    "model": "deepseek-v4-flash",
+    "base_url": "https://api.deepseek.com"
+  },
+  "cases": [
+    {
+      "id": "shipping_time",
+      "input": {
+        "id": "shipping_time",
+        "message": "今天拍下多久能发货？",
+        "item_id": "baseline-item",
+        "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+        "context": [],
+        "bargain_round": 0
+      },
+      "output": {
+        "intent": "shipping",
+        "confidence": 0.8799999999999999,
+        "rewritten_query": "今天拍下该二手数码商品后，多久能发货？",
+        "reply": "今天拍下的话，正常 72 小时内发出，急用可以提前跟我说一声。",
+        "strategy": {
+          "item_id": "baseline-item",
+          "min_price": 760.0,
+          "max_price": 899.0,
+          "max_bargain_rounds": 3
+        },
+        "reply_policy": {
+          "simulate_human_typing": true,
+          "low_confidence_handoff": false,
+          "confidence_threshold": 0.7,
+          "block_off_platform": true,
+          "night_auto_reply": true
+        },
+        "retrieval_mode": "bm25+vector",
+        "embedding_status": "active",
+        "tool_calls": [
+          {
+            "name": "search_faq",
+            "arguments": {
+              "query": "今天拍下多久能发货？"
+            },
+            "status": "completed",
+            "result": {
+              "query": "今天拍下多久能发货？",
+              "retrieval_mode": "bm25+vector",
+              "embedding_enabled": true,
+              "embedding_status": "active",
+              "items": [
+                {
+                  "id": 1,
+                  "scene": "发货时效",
+                  "question": "今天拍下什么时候发货？",
+                  "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+                  "keywords": "发货 快递 今天",
+                  "enabled": true,
+                  "bm25_score": 15.630875,
+                  "vector_score": 0.818824,
+                  "coarse_score": 0.01639344,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 5,
+                  "scene": "发货",
+                  "question": "发什么快递？",
+                  "answer": "一般是圆通和申通，需要其他发货方式请提前说明",
+                  "keywords": "",
+                  "enabled": true,
+                  "bm25_score": 3.912426,
+                  "vector_score": 0.53417,
+                  "coarse_score": 0.01612903,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 3,
+                  "scene": "售后边界",
+                  "question": "可以退货吗？",
+                  "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+                  "keywords": "退货 售后 质量",
+                  "enabled": true,
+                  "bm25_score": 1.178022,
+                  "vector_score": 0.498366,
+                  "coarse_score": 0.01587302,
+                  "retrieval_mode": "bm25+vector"
+                }
+              ],
+              "notice": "结果按相关性排序，分数不是置信度；仅使用与当前商品及问题一致的事实，无可靠匹配时请澄清或转人工。"
+            }
+          }
+        ],
+        "tool_status": "completed",
+        "evidence": [
+          {
+            "id": 1,
+            "scene": "发货时效",
+            "question": "今天拍下什么时候发货？",
+            "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+            "keywords": "发货 快递 今天",
+            "enabled": true,
+            "bm25_score": 15.71358,
+            "vector_score": 0.717867,
+            "coarse_score": 0.01639344,
+            "retrieval_mode": "bm25+vector",
+            "rerank_score": 1.0
+          },
+          {
+            "id": 5,
+            "scene": "发货",
+            "question": "发什么快递？",
+            "answer": "一般是圆通和申通，需要其他发货方式请提前说明",
+            "keywords": "",
+            "enabled": true,
+            "bm25_score": 4.004487,
+            "vector_score": 0.488489,
+            "coarse_score": 0.015625,
+            "retrieval_mode": "bm25+vector",
+            "rerank_score": 0.2
+          },
+          {
+            "id": 2,
+            "scene": "商品成色",
+            "question": "状态如何？",
+            "answer": "状态和手感以实拍图和视频为准，默认瑕疵。",
+            "keywords": "成色 瑕疵 划痕 磕碰",
+            "enabled": true,
+            "bm25_score": 5.887825,
+            "vector_score": 0.497983,
+            "coarse_score": 0.01587302,
+            "retrieval_mode": "bm25+vector",
+            "rerank_score": 0.05
+          }
+        ],
+        "stages": [
+          {
+            "name": "intent",
+            "label": "意图识别",
+            "detail": "shipping · 置信度 88%",
+            "status": "completed"
+          },
+          {
+            "name": "rewrite",
+            "label": "多轮改写",
+            "detail": "今天拍下该二手数码商品后，多久能发货？",
+            "status": "completed"
+          },
+          {
+            "name": "recall",
+            "label": "混合粗排",
+            "detail": "BM25 + Embedding 融合 · 召回 5 条",
+            "status": "completed"
+          },
+          {
+            "name": "rerank",
+            "label": "模型精排",
+            "detail": "Top 3 证据已送入回复专家",
+            "status": "completed"
+          },
+          {
+            "name": "reply",
+            "label": "安全生成",
+            "detail": "平台安全规则已校验",
+            "status": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "shipping_carrier",
+      "input": {
+        "id": "shipping_carrier",
+        "message": "默认发什么快递？",
+        "item_id": "baseline-item",
+        "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+        "context": [],
+        "bargain_round": 0
+      },
+      "output": {
+        "intent": "shipping",
+        "confidence": 0.8799999999999999,
+        "rewritten_query": "这件二手数码商品默认发什么快递？",
+        "reply": "默认发圆通或申通，需要其他快递的话提前跟我说一声就行～",
+        "strategy": {
+          "item_id": "baseline-item",
+          "min_price": 760.0,
+          "max_price": 899.0,
+          "max_bargain_rounds": 3
+        },
+        "reply_policy": {
+          "simulate_human_typing": true,
+          "low_confidence_handoff": false,
+          "confidence_threshold": 0.7,
+          "block_off_platform": true,
+          "night_auto_reply": true
+        },
+        "retrieval_mode": "bm25+vector",
+        "embedding_status": "active",
+        "tool_calls": [
+          {
+            "name": "search_faq",
+            "arguments": {
+              "query": "默认发什么快递？"
+            },
+            "status": "completed",
+            "result": {
+              "query": "默认发什么快递？",
+              "retrieval_mode": "bm25+vector",
+              "embedding_enabled": true,
+              "embedding_status": "active",
+              "items": [
+                {
+                  "id": 5,
+                  "scene": "发货",
+                  "question": "发什么快递？",
+                  "answer": "一般是圆通和申通，需要其他发货方式请提前说明",
+                  "keywords": "",
+                  "enabled": true,
+                  "bm25_score": 11.7673,
+                  "vector_score": 0.66381,
+                  "coarse_score": 0.01639344,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 1,
+                  "scene": "发货时效",
+                  "question": "今天拍下什么时候发货？",
+                  "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+                  "keywords": "发货 快递 今天",
+                  "enabled": true,
+                  "bm25_score": 6.82126,
+                  "vector_score": 0.56181,
+                  "coarse_score": 0.01612903,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 2,
+                  "scene": "商品成色",
+                  "question": "状态如何？",
+                  "answer": "状态和手感以实拍图和视频为准，默认瑕疵。",
+                  "keywords": "成色 瑕疵 划痕 磕碰",
+                  "enabled": true,
+                  "bm25_score": 2.884587,
+                  "vector_score": 0.273832,
+                  "coarse_score": 0.01576141,
+                  "retrieval_mode": "bm25+vector"
+                }
+              ],
+              "notice": "结果按相关性排序，分数不是置信度；仅使用与当前商品及问题一致的事实，无可靠匹配时请澄清或转人工。"
+            }
+          }
+        ],
+        "tool_status": "completed",
+        "evidence": [
+          {
+            "id": 5,
+            "scene": "发货",
+            "question": "发什么快递？",
+            "answer": "一般是圆通和申通，需要其他发货方式请提前说明",
+            "keywords": "",
+            "enabled": true,
+            "bm25_score": 11.7673,
+            "vector_score": 0.61222,
+            "coarse_score": 0.01639344,
+            "retrieval_mode": "bm25+vector",
+            "rerank_score": 0.99
+          },
+          {
+            "id": 1,
+            "scene": "发货时效",
+            "question": "今天拍下什么时候发货？",
+            "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+            "keywords": "发货 快递 今天",
+            "enabled": true,
+            "bm25_score": 6.82126,
+            "vector_score": 0.542599,
+            "coarse_score": 0.01598822,
+            "retrieval_mode": "bm25+vector",
+            "rerank_score": 0.35
+          },
+          {
+            "id": 2,
+            "scene": "商品成色",
+            "question": "状态如何？",
+            "answer": "状态和手感以实拍图和视频为准，默认瑕疵。",
+            "keywords": "成色 瑕疵 划痕 磕碰",
+            "enabled": true,
+            "bm25_score": 7.867972,
+            "vector_score": 0.42287,
+            "coarse_score": 0.01590222,
+            "retrieval_mode": "bm25+vector",
+            "rerank_score": 0.08
+          }
+        ],
+        "stages": [
+          {
+            "name": "intent",
+            "label": "意图识别",
+            "detail": "shipping · 置信度 88%",
+            "status": "completed"
+          },
+          {
+            "name": "rewrite",
+            "label": "多轮改写",
+            "detail": "这件二手数码商品默认发什么快递？",
+            "status": "completed"
+          },
+          {
+            "name": "recall",
+            "label": "混合粗排",
+            "detail": "BM25 + Embedding 融合 · 召回 5 条",
+            "status": "completed"
+          },
+          {
+            "name": "rerank",
+            "label": "模型精排",
+            "detail": "Top 3 证据已送入回复专家",
+            "status": "completed"
+          },
+          {
+            "name": "reply",
+            "label": "安全生成",
+            "detail": "平台安全规则已校验",
+            "status": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "quality",
+      "input": {
+        "id": "quality",
+        "message": "这个成色怎么样，有明显划痕吗？",
+        "item_id": "baseline-item",
+        "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+        "context": [],
+        "bargain_round": 0
+      },
+      "output": {
+        "intent": "quality",
+        "confidence": 0.94,
+        "rewritten_query": "这件二手数码商品的成色怎么样，有明显划痕吗？",
+        "reply": "成色和手感以实拍图和视频为准，默认有瑕疵哈。具体划痕情况建议您看下商品页的实拍图，或者我这边给您拍段视频确认，您看方便吗？",
+        "strategy": {
+          "item_id": "baseline-item",
+          "min_price": 760.0,
+          "max_price": 899.0,
+          "max_bargain_rounds": 3
+        },
+        "reply_policy": {
+          "simulate_human_typing": true,
+          "low_confidence_handoff": false,
+          "confidence_threshold": 0.7,
+          "block_off_platform": true,
+          "night_auto_reply": true
+        },
+        "retrieval_mode": "bm25+vector",
+        "embedding_status": "active",
+        "tool_calls": [
+          {
+            "name": "search_faq",
+            "arguments": {
+              "query": "这个成色怎么样，有明显划痕吗？"
+            },
+            "status": "completed",
+            "result": {
+              "query": "这个成色怎么样，有明显划痕吗？",
+              "retrieval_mode": "bm25+vector",
+              "embedding_enabled": true,
+              "embedding_status": "active",
+              "items": [
+                {
+                  "id": 2,
+                  "scene": "商品成色",
+                  "question": "状态如何？",
+                  "answer": "状态和手感以实拍图和视频为准，默认瑕疵。",
+                  "keywords": "成色 瑕疵 划痕 磕碰",
+                  "enabled": true,
+                  "bm25_score": 7.706824,
+                  "vector_score": 0.69797,
+                  "coarse_score": 0.01639344,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 4,
+                  "scene": "通用",
+                  "question": "状态如何",
+                  "answer": "状态以视频和实拍图片为准，默认瑕疵",
+                  "keywords": "状态、成色、捏痕、全新",
+                  "enabled": true,
+                  "bm25_score": 3.653425,
+                  "vector_score": 0.566625,
+                  "coarse_score": 0.01612903,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 3,
+                  "scene": "售后边界",
+                  "question": "可以退货吗？",
+                  "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+                  "keywords": "退货 售后 质量",
+                  "enabled": true,
+                  "bm25_score": 3.11542,
+                  "vector_score": 0.434598,
+                  "coarse_score": 0.01587302,
+                  "retrieval_mode": "bm25+vector"
+                }
+              ],
+              "notice": "结果按相关性排序，分数不是置信度；仅使用与当前商品及问题一致的事实，无可靠匹配时请澄清或转人工。"
+            }
+          }
+        ],
+        "tool_status": "completed",
+        "evidence": [
+          {
+            "id": 2,
+            "scene": "商品成色",
+            "question": "状态如何？",
+            "answer": "状态和手感以实拍图和视频为准，默认瑕疵。",
+            "keywords": "成色 瑕疵 划痕 磕碰",
+            "enabled": true,
+            "bm25_score": 12.69021,
+            "vector_score": 0.720743,
+            "coarse_score": 0.01639344,
+            "retrieval_mode": "bm25+vector",
+            "rerank_score": 0.95
+          },
+          {
+            "id": 4,
+            "scene": "通用",
+            "question": "状态如何",
+            "answer": "状态以视频和实拍图片为准，默认瑕疵",
+            "keywords": "状态、成色、捏痕、全新",
+            "enabled": true,
+            "bm25_score": 3.653425,
+            "vector_score": 0.54617,
+            "coarse_score": 0.01587302,
+            "retrieval_mode": "bm25+vector",
+            "rerank_score": 0.92
+          },
+          {
+            "id": 3,
+            "scene": "售后边界",
+            "question": "可以退货吗？",
+            "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+            "keywords": "退货 售后 质量",
+            "enabled": true,
+            "bm25_score": 6.726545,
+            "vector_score": 0.58775,
+            "coarse_score": 0.01612903,
+            "retrieval_mode": "bm25+vector",
+            "rerank_score": 0.2
+          }
+        ],
+        "stages": [
+          {
+            "name": "intent",
+            "label": "意图识别",
+            "detail": "quality · 置信度 94%",
+            "status": "completed"
+          },
+          {
+            "name": "rewrite",
+            "label": "多轮改写",
+            "detail": "这件二手数码商品的成色怎么样，有明显划痕吗？",
+            "status": "completed"
+          },
+          {
+            "name": "recall",
+            "label": "混合粗排",
+            "detail": "BM25 + Embedding 融合 · 召回 5 条",
+            "status": "completed"
+          },
+          {
+            "name": "rerank",
+            "label": "模型精排",
+            "detail": "Top 3 证据已送入回复专家",
+            "status": "completed"
+          },
+          {
+            "name": "reply",
+            "label": "安全生成",
+            "detail": "平台安全规则已校验",
+            "status": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "after_sale",
+      "input": {
+        "id": "after_sale",
+        "message": "收到后不喜欢可以退吗？",
+        "item_id": "baseline-item",
+        "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+        "context": [],
+        "bargain_round": 0
+      },
+      "output": {
+        "intent": "after_sale",
+        "confidence": 0.95,
+        "rewritten_query": "在闲鱼购买二手数码商品，收到后如果不喜欢可以退货吗？",
+        "reply": "不好意思，二手闲置非质量问题是不退不换的哈，所以\"不喜欢\"这种主观原因没法退。\n\n建议您下单前先看清楚实拍图和视频，状态以实拍为准、默认有瑕疵，确认能接受再拍。签收后也请及时验货，如果是质量问题咱们再商量处理。",
+        "strategy": {
+          "item_id": "baseline-item",
+          "min_price": 760.0,
+          "max_price": 899.0,
+          "max_bargain_rounds": 3
+        },
+        "reply_policy": {
+          "simulate_human_typing": true,
+          "low_confidence_handoff": false,
+          "confidence_threshold": 0.7,
+          "block_off_platform": true,
+          "night_auto_reply": true
+        },
+        "retrieval_mode": "bm25+vector",
+        "embedding_status": "active",
+        "tool_calls": [
+          {
+            "name": "search_faq",
+            "arguments": {
+              "query": "收到后不喜欢可以退吗？二手商品退货政策"
+            },
+            "status": "completed",
+            "result": {
+              "query": "收到后不喜欢可以退吗？二手商品退货政策",
+              "retrieval_mode": "bm25+vector",
+              "embedding_enabled": true,
+              "embedding_status": "active",
+              "items": [
+                {
+                  "id": 3,
+                  "scene": "售后边界",
+                  "question": "可以退货吗？",
+                  "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+                  "keywords": "退货 售后 质量",
+                  "enabled": true,
+                  "bm25_score": 20.22936,
+                  "vector_score": 0.795563,
+                  "coarse_score": 0.01639344,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 2,
+                  "scene": "商品成色",
+                  "question": "状态如何？",
+                  "answer": "状态和手感以实拍图和视频为准，默认瑕疵。",
+                  "keywords": "成色 瑕疵 划痕 磕碰",
+                  "enabled": true,
+                  "bm25_score": 5.552925,
+                  "vector_score": 0.466106,
+                  "coarse_score": 0.01601382,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 1,
+                  "scene": "发货时效",
+                  "question": "今天拍下什么时候发货？",
+                  "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+                  "keywords": "发货 快递 今天",
+                  "enabled": true,
+                  "bm25_score": 3.084248,
+                  "vector_score": 0.511692,
+                  "coarse_score": 0.01598822,
+                  "retrieval_mode": "bm25+vector"
+                }
+              ],
+              "notice": "结果按相关性排序，分数不是置信度；仅使用与当前商品及问题一致的事实，无可靠匹配时请澄清或转人工。"
+            }
+          }
+        ],
+        "tool_status": "completed",
+        "evidence": [
+          {
+            "id": 3,
+            "scene": "售后边界",
+            "question": "可以退货吗？",
+            "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+            "keywords": "退货 售后 质量",
+            "enabled": true,
+            "bm25_score": 23.06001,
+            "vector_score": 0.751601,
+            "coarse_score": 0.01639344,
+            "retrieval_mode": "bm25+vector",
+            "rerank_score": 0.98
+          },
+          {
+            "id": 2,
+            "scene": "商品成色",
+            "question": "状态如何？",
+            "answer": "状态和手感以实拍图和视频为准，默认瑕疵。",
+            "keywords": "成色 瑕疵 划痕 磕碰",
+            "enabled": true,
+            "bm25_score": 6.505661,
+            "vector_score": 0.47213,
+            "coarse_score": 0.01612903,
+            "retrieval_mode": "bm25+vector",
+            "rerank_score": 0.12
+          },
+          {
+            "id": 4,
+            "scene": "通用",
+            "question": "状态如何",
+            "answer": "状态以视频和实拍图片为准，默认瑕疵",
+            "keywords": "状态、成色、捏痕、全新",
+            "enabled": true,
+            "bm25_score": 1.272644,
+            "vector_score": 0.348769,
+            "coarse_score": 0.01551683,
+            "retrieval_mode": "bm25+vector",
+            "rerank_score": 0.1
+          }
+        ],
+        "stages": [
+          {
+            "name": "intent",
+            "label": "意图识别",
+            "detail": "after_sale · 置信度 95%",
+            "status": "completed"
+          },
+          {
+            "name": "rewrite",
+            "label": "多轮改写",
+            "detail": "在闲鱼购买二手数码商品，收到后如果不喜欢可以退货吗？",
+            "status": "completed"
+          },
+          {
+            "name": "recall",
+            "label": "混合粗排",
+            "detail": "BM25 + Embedding 融合 · 召回 5 条",
+            "status": "completed"
+          },
+          {
+            "name": "rerank",
+            "label": "模型精排",
+            "detail": "Top 3 证据已送入回复专家",
+            "status": "completed"
+          },
+          {
+            "name": "reply",
+            "label": "安全生成",
+            "detail": "平台安全规则已校验",
+            "status": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "availability",
+      "input": {
+        "id": "availability",
+        "message": "东西还在吗？",
+        "item_id": "baseline-item",
+        "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+        "context": [],
+        "bargain_round": 0
+      },
+      "output": {
+        "intent": "availability",
+        "confidence": 0.94,
+        "rewritten_query": "东西还在吗？",
+        "reply": "在的，还在。这个二手数码商品状态以实拍图和描述为准，默认有瑕疵。有需要可以直接拍，价格 852.67 元。",
+        "strategy": {
+          "item_id": "baseline-item",
+          "min_price": 760.0,
+          "max_price": 899.0,
+          "max_bargain_rounds": 3
+        },
+        "reply_policy": {
+          "simulate_human_typing": true,
+          "low_confidence_handoff": false,
+          "confidence_threshold": 0.7,
+          "block_off_platform": true,
+          "night_auto_reply": true
+        },
+        "retrieval_mode": "bm25+vector",
+        "embedding_status": "active",
+        "tool_calls": [
+          {
+            "name": "search_faq",
+            "arguments": {
+              "query": "东西还在吗？还有货吗？"
+            },
+            "status": "completed",
+            "result": {
+              "query": "东西还在吗？还有货吗？",
+              "retrieval_mode": "bm25+vector",
+              "embedding_enabled": true,
+              "embedding_status": "active",
+              "items": [
+                {
+                  "id": 3,
+                  "scene": "售后边界",
+                  "question": "可以退货吗？",
+                  "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+                  "keywords": "退货 售后 质量",
+                  "enabled": true,
+                  "bm25_score": 5.294802,
+                  "vector_score": 0.447372,
+                  "coarse_score": 0.01627446,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 1,
+                  "scene": "发货时效",
+                  "question": "今天拍下什么时候发货？",
+                  "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+                  "keywords": "发货 快递 今天",
+                  "enabled": true,
+                  "bm25_score": 1.146518,
+                  "vector_score": 0.506306,
+                  "coarse_score": 0.01624802,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 5,
+                  "scene": "发货",
+                  "question": "发什么快递？",
+                  "answer": "一般是圆通和申通，需要其他发货方式请提前说明",
+                  "keywords": "",
+                  "enabled": true,
+                  "bm25_score": 1.105775,
+                  "vector_score": 0.43572,
+                  "coarse_score": 0.01587302,
+                  "retrieval_mode": "bm25+vector"
+                }
+              ],
+              "notice": "结果按相关性排序，分数不是置信度；仅使用与当前商品及问题一致的事实，无可靠匹配时请澄清或转人工。"
+            }
+          }
+        ],
+        "tool_status": "completed",
+        "evidence": [
+          {
+            "id": 3,
+            "scene": "售后边界",
+            "question": "可以退货吗？",
+            "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+            "keywords": "退货 售后 质量",
+            "enabled": true,
+            "bm25_score": 3.029289,
+            "vector_score": 0.37743,
+            "coarse_score": 0.01615925,
+            "retrieval_mode": "bm25+vector"
+          },
+          {
+            "id": 2,
+            "scene": "商品成色",
+            "question": "状态如何？",
+            "answer": "状态和手感以实拍图和视频为准，默认瑕疵。",
+            "keywords": "成色 瑕疵 划痕 磕碰",
+            "enabled": true,
+            "bm25_score": 0.28477,
+            "vector_score": 0.387226,
+            "coarse_score": 0.01598822,
+            "retrieval_mode": "bm25+vector"
+          },
+          {
+            "id": 1,
+            "scene": "发货时效",
+            "question": "今天拍下什么时候发货？",
+            "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+            "keywords": "发货 快递 今天",
+            "enabled": true,
+            "bm25_score": 0.273445,
+            "vector_score": 0.399491,
+            "coarse_score": 0.0159708,
+            "retrieval_mode": "bm25+vector"
+          }
+        ],
+        "stages": [
+          {
+            "name": "intent",
+            "label": "意图识别",
+            "detail": "availability · 置信度 94%",
+            "status": "completed"
+          },
+          {
+            "name": "rewrite",
+            "label": "多轮改写",
+            "detail": "东西还在吗？",
+            "status": "completed"
+          },
+          {
+            "name": "recall",
+            "label": "混合粗排",
+            "detail": "BM25 + Embedding 融合 · 召回 5 条",
+            "status": "completed"
+          },
+          {
+            "name": "rerank",
+            "label": "模型精排",
+            "detail": "Top 3 证据已送入回复专家",
+            "status": "completed"
+          },
+          {
+            "name": "reply",
+            "label": "安全生成",
+            "detail": "平台安全规则已校验",
+            "status": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "price_first_round",
+      "input": {
+        "id": "price_first_round",
+        "message": "最低多少钱？",
+        "item_id": "baseline-item",
+        "item_desc": "二手数码商品，标价 899 元。",
+        "context": [],
+        "bargain_round": 0
+      },
+      "output": {
+        "intent": "price",
+        "confidence": 0.94,
+        "rewritten_query": "这件标价 899 元的二手数码商品最低多少钱？",
+        "reply": "这件目前最低可以做到 ¥852.67，已经是我能给到的价格了，合适的话可以直接拍。",
+        "strategy": {
+          "item_id": "baseline-item",
+          "min_price": 760.0,
+          "max_price": 899.0,
+          "max_bargain_rounds": 3
+        },
+        "reply_policy": {
+          "simulate_human_typing": true,
+          "low_confidence_handoff": false,
+          "confidence_threshold": 0.7,
+          "block_off_platform": true,
+          "night_auto_reply": true
+        },
+        "retrieval_mode": "bm25+vector",
+        "embedding_status": "active",
+        "tool_calls": [
+          {
+            "name": "search_faq",
+            "arguments": {
+              "query": "最低多少钱 可以便宜点吗 议价"
+            },
+            "status": "completed",
+            "result": {
+              "query": "最低多少钱 可以便宜点吗 议价",
+              "retrieval_mode": "bm25+vector",
+              "embedding_enabled": true,
+              "embedding_status": "active",
+              "items": [
+                {
+                  "id": 3,
+                  "scene": "售后边界",
+                  "question": "可以退货吗？",
+                  "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+                  "keywords": "退货 售后 质量",
+                  "enabled": true,
+                  "bm25_score": 3.390241,
+                  "vector_score": 0.410229,
+                  "coarse_score": 0.01627446,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 1,
+                  "scene": "发货时效",
+                  "question": "今天拍下什么时候发货？",
+                  "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+                  "keywords": "发货 快递 今天",
+                  "enabled": true,
+                  "bm25_score": 1.937729,
+                  "vector_score": 0.415538,
+                  "coarse_score": 0.01624802,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 4,
+                  "scene": "通用",
+                  "question": "状态如何",
+                  "answer": "状态以视频和实拍图片为准，默认瑕疵",
+                  "keywords": "状态、成色、捏痕、全新",
+                  "enabled": true,
+                  "bm25_score": 0.292855,
+                  "vector_score": 0.270723,
+                  "coarse_score": 0.01565324,
+                  "retrieval_mode": "bm25+vector"
+                }
+              ],
+              "notice": "结果按相关性排序，分数不是置信度；仅使用与当前商品及问题一致的事实，无可靠匹配时请澄清或转人工。"
+            }
+          }
+        ],
+        "tool_status": "completed",
+        "evidence": [
+          {
+            "id": 2,
+            "scene": "商品成色",
+            "question": "状态如何？",
+            "answer": "状态和手感以实拍图和视频为准，默认瑕疵。",
+            "keywords": "成色 瑕疵 划痕 磕碰",
+            "enabled": true,
+            "bm25_score": 5.268155,
+            "vector_score": 0.475297,
+            "coarse_score": 0.01627446,
+            "retrieval_mode": "bm25+vector"
+          },
+          {
+            "id": 3,
+            "scene": "售后边界",
+            "question": "可以退货吗？",
+            "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+            "keywords": "退货 售后 质量",
+            "enabled": true,
+            "bm25_score": 3.895895,
+            "vector_score": 0.502313,
+            "coarse_score": 0.01624802,
+            "retrieval_mode": "bm25+vector"
+          },
+          {
+            "id": 1,
+            "scene": "发货时效",
+            "question": "今天拍下什么时候发货？",
+            "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+            "keywords": "发货 快递 今天",
+            "enabled": true,
+            "bm25_score": 0.273445,
+            "vector_score": 0.37585,
+            "coarse_score": 0.01573661,
+            "retrieval_mode": "bm25+vector"
+          }
+        ],
+        "stages": [
+          {
+            "name": "intent",
+            "label": "意图识别",
+            "detail": "price · 置信度 94%",
+            "status": "completed"
+          },
+          {
+            "name": "rewrite",
+            "label": "多轮改写",
+            "detail": "这件标价 899 元的二手数码商品最低多少钱？",
+            "status": "completed"
+          },
+          {
+            "name": "recall",
+            "label": "混合粗排",
+            "detail": "BM25 + Embedding 融合 · 召回 5 条",
+            "status": "completed"
+          },
+          {
+            "name": "rerank",
+            "label": "模型精排",
+            "detail": "Top 3 证据已送入回复专家",
+            "status": "completed"
+          },
+          {
+            "name": "reply",
+            "label": "安全生成",
+            "detail": "价格下限与平台安全规则已校验 · 报价 ¥852.67",
+            "status": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "price_later_round",
+      "input": {
+        "id": "price_later_round",
+        "message": "再便宜一点可以吗？",
+        "item_id": "baseline-item",
+        "item_desc": "二手数码商品，标价 899 元。",
+        "context": [
+          {
+            "role": "user",
+            "content": "最低多少钱？"
+          },
+          {
+            "role": "assistant",
+            "content": "目前可以小幅优惠。"
+          }
+        ],
+        "bargain_round": 2
+      },
+      "output": {
+        "intent": "price",
+        "confidence": 0.8799999999999999,
+        "rewritten_query": "对于标价899元的二手数码商品，卖家已表示目前可以小幅优惠，还能再便宜一点吗？",
+        "reply": "最低 760 元，这个价我就不再让了。东西状态以实拍图和视频为准，默认有瑕疵，能接受的话今天拍下我尽快安排发出。",
+        "strategy": {
+          "item_id": "baseline-item",
+          "min_price": 760.0,
+          "max_price": 899.0,
+          "max_bargain_rounds": 3
+        },
+        "reply_policy": {
+          "simulate_human_typing": true,
+          "low_confidence_handoff": false,
+          "confidence_threshold": 0.7,
+          "block_off_platform": true,
+          "night_auto_reply": true
+        },
+        "retrieval_mode": "bm25+vector",
+        "embedding_status": "active",
+        "tool_calls": [
+          {
+            "name": "search_faq",
+            "arguments": {
+              "query": "可以再便宜一点吗 最低多少钱 议价"
+            },
+            "status": "completed",
+            "result": {
+              "query": "可以再便宜一点吗 最低多少钱 议价",
+              "retrieval_mode": "bm25+vector",
+              "embedding_enabled": true,
+              "embedding_status": "active",
+              "items": [
+                {
+                  "id": 3,
+                  "scene": "售后边界",
+                  "question": "可以退货吗？",
+                  "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+                  "keywords": "退货 售后 质量",
+                  "enabled": true,
+                  "bm25_score": 3.390241,
+                  "vector_score": 0.46476,
+                  "coarse_score": 0.01639344,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 1,
+                  "scene": "发货时效",
+                  "question": "今天拍下什么时候发货？",
+                  "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+                  "keywords": "发货 快递 今天",
+                  "enabled": true,
+                  "bm25_score": 1.937729,
+                  "vector_score": 0.420843,
+                  "coarse_score": 0.01612903,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 5,
+                  "scene": "发货",
+                  "question": "发什么快递？",
+                  "answer": "一般是圆通和申通，需要其他发货方式请提前说明",
+                  "keywords": "",
+                  "enabled": true,
+                  "bm25_score": 1.466754,
+                  "vector_score": 0.368237,
+                  "coarse_score": 0.01587302,
+                  "retrieval_mode": "bm25+vector"
+                }
+              ],
+              "notice": "结果按相关性排序，分数不是置信度；仅使用与当前商品及问题一致的事实，无可靠匹配时请澄清或转人工。"
+            }
+          }
+        ],
+        "tool_status": "completed",
+        "evidence": [
+          {
+            "id": 3,
+            "scene": "售后边界",
+            "question": "可以退货吗？",
+            "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+            "keywords": "退货 售后 质量",
+            "enabled": true,
+            "bm25_score": 8.744527,
+            "vector_score": 0.595926,
+            "coarse_score": 0.01639344,
+            "retrieval_mode": "bm25+vector"
+          },
+          {
+            "id": 2,
+            "scene": "商品成色",
+            "question": "状态如何？",
+            "answer": "状态和手感以实拍图和视频为准，默认瑕疵。",
+            "keywords": "成色 瑕疵 划痕 磕碰",
+            "enabled": true,
+            "bm25_score": 5.639055,
+            "vector_score": 0.460898,
+            "coarse_score": 0.01612903,
+            "retrieval_mode": "bm25+vector"
+          },
+          {
+            "id": 1,
+            "scene": "发货时效",
+            "question": "今天拍下什么时候发货？",
+            "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+            "keywords": "发货 快递 今天",
+            "enabled": true,
+            "bm25_score": 4.443709,
+            "vector_score": 0.454858,
+            "coarse_score": 0.01587302,
+            "retrieval_mode": "bm25+vector"
+          }
+        ],
+        "stages": [
+          {
+            "name": "intent",
+            "label": "意图识别",
+            "detail": "price · 置信度 88%",
+            "status": "completed"
+          },
+          {
+            "name": "rewrite",
+            "label": "多轮改写",
+            "detail": "对于标价899元的二手数码商品，卖家已表示目前可以小幅优惠，还能再便宜一点吗？",
+            "status": "completed"
+          },
+          {
+            "name": "recall",
+            "label": "混合粗排",
+            "detail": "BM25 + Embedding 融合 · 召回 5 条",
+            "status": "completed"
+          },
+          {
+            "name": "rerank",
+            "label": "模型精排",
+            "detail": "Top 3 证据已送入回复专家",
+            "status": "completed"
+          },
+          {
+            "name": "reply",
+            "label": "安全生成",
+            "detail": "价格下限与平台安全规则已校验 · 报价 ¥760",
+            "status": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "context_rewrite",
+      "input": {
+        "id": "context_rewrite",
+        "message": "这个呢？",
+        "item_id": "baseline-item",
+        "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+        "context": [
+          {
+            "role": "user",
+            "content": "上一件商品多久发货？"
+          },
+          {
+            "role": "assistant",
+            "content": "一般会尽快安排。"
+          }
+        ],
+        "bargain_round": 0
+      },
+      "output": {
+        "intent": "shipping",
+        "confidence": 0.72,
+        "rewritten_query": "这件二手数码商品多久发货？",
+        "reply": "这件也是正常 72 小时内发出，急用的话提前跟我说，我尽量安排。\n\n快递一般走圆通和申通，需要其他方式提前说明。",
+        "strategy": {
+          "item_id": "baseline-item",
+          "min_price": 760.0,
+          "max_price": 899.0,
+          "max_bargain_rounds": 3
+        },
+        "reply_policy": {
+          "simulate_human_typing": true,
+          "low_confidence_handoff": false,
+          "confidence_threshold": 0.7,
+          "block_off_platform": true,
+          "night_auto_reply": true
+        },
+        "retrieval_mode": "bm25+vector",
+        "embedding_status": "active",
+        "tool_calls": [
+          {
+            "name": "search_faq",
+            "arguments": {
+              "query": "这个商品多久发货？发什么快递？"
+            },
+            "status": "completed",
+            "result": {
+              "query": "这个商品多久发货？发什么快递？",
+              "retrieval_mode": "bm25+vector",
+              "embedding_enabled": true,
+              "embedding_status": "active",
+              "items": [
+                {
+                  "id": 5,
+                  "scene": "发货",
+                  "question": "发什么快递？",
+                  "answer": "一般是圆通和申通，需要其他发货方式请提前说明",
+                  "keywords": "",
+                  "enabled": true,
+                  "bm25_score": 13.870368,
+                  "vector_score": 0.675458,
+                  "coarse_score": 0.01639344,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 1,
+                  "scene": "发货时效",
+                  "question": "今天拍下什么时候发货？",
+                  "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+                  "keywords": "发货 快递 今天",
+                  "enabled": true,
+                  "bm25_score": 10.430116,
+                  "vector_score": 0.672146,
+                  "coarse_score": 0.01612903,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 2,
+                  "scene": "商品成色",
+                  "question": "状态如何？",
+                  "answer": "状态和手感以实拍图和视频为准，默认瑕疵。",
+                  "keywords": "成色 瑕疵 划痕 磕碰",
+                  "enabled": true,
+                  "bm25_score": 4.401549,
+                  "vector_score": 0.291584,
+                  "coarse_score": 0.01576141,
+                  "retrieval_mode": "bm25+vector"
+                }
+              ],
+              "notice": "结果按相关性排序，分数不是置信度；仅使用与当前商品及问题一致的事实，无可靠匹配时请澄清或转人工。"
+            }
+          }
+        ],
+        "tool_status": "completed",
+        "evidence": [
+          {
+            "id": 1,
+            "scene": "发货时效",
+            "question": "今天拍下什么时候发货？",
+            "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+            "keywords": "发货 快递 今天",
+            "enabled": true,
+            "bm25_score": 5.437262,
+            "vector_score": 0.62843,
+            "coarse_score": 0.01639344,
+            "retrieval_mode": "bm25+vector",
+            "rerank_score": 1.0
+          },
+          {
+            "id": 5,
+            "scene": "发货",
+            "question": "发什么快递？",
+            "answer": "一般是圆通和申通，需要其他发货方式请提前说明",
+            "keywords": "",
+            "enabled": true,
+            "bm25_score": 3.912426,
+            "vector_score": 0.480353,
+            "coarse_score": 0.01573661,
+            "retrieval_mode": "bm25+vector",
+            "rerank_score": 0.35
+          },
+          {
+            "id": 2,
+            "scene": "商品成色",
+            "question": "状态如何？",
+            "answer": "状态和手感以实拍图和视频为准，默认瑕疵。",
+            "keywords": "成色 瑕疵 划痕 磕碰",
+            "enabled": true,
+            "bm25_score": 5.268155,
+            "vector_score": 0.457115,
+            "coarse_score": 0.01590222,
+            "retrieval_mode": "bm25+vector",
+            "rerank_score": 0.05
+          }
+        ],
+        "stages": [
+          {
+            "name": "intent",
+            "label": "意图识别",
+            "detail": "shipping · 置信度 72%",
+            "status": "completed"
+          },
+          {
+            "name": "rewrite",
+            "label": "多轮改写",
+            "detail": "这件二手数码商品多久发货？",
+            "status": "completed"
+          },
+          {
+            "name": "recall",
+            "label": "混合粗排",
+            "detail": "BM25 + Embedding 融合 · 召回 5 条",
+            "status": "completed"
+          },
+          {
+            "name": "rerank",
+            "label": "模型精排",
+            "detail": "Top 3 证据已送入回复专家",
+            "status": "completed"
+          },
+          {
+            "name": "reply",
+            "label": "安全生成",
+            "detail": "平台安全规则已校验",
+            "status": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "general_question",
+      "input": {
+        "id": "general_question",
+        "message": "能再介绍一下这个商品吗？",
+        "item_id": "baseline-item",
+        "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+        "context": [],
+        "bargain_round": 0
+      },
+      "output": {
+        "intent": "general",
+        "confidence": 0.92,
+        "rewritten_query": "能再介绍一下这个商品吗？",
+        "reply": "这是二手闲置数码，具体成色和手感以实拍图和视频为准，默认有瑕疵，介意的话可以先看下实拍再决定。\n\n价格方面 852.67 元，走圆通或申通，需要其他快递提前说。二手非质量问题不退，签收后请及时验货。\n\n想了解哪方面可以再问我～",
+        "strategy": {
+          "item_id": "baseline-item",
+          "min_price": 760.0,
+          "max_price": 899.0,
+          "max_bargain_rounds": 3
+        },
+        "reply_policy": {
+          "simulate_human_typing": true,
+          "low_confidence_handoff": false,
+          "confidence_threshold": 0.7,
+          "block_off_platform": true,
+          "night_auto_reply": true
+        },
+        "retrieval_mode": "bm25+vector",
+        "embedding_status": "active",
+        "tool_calls": [
+          {
+            "name": "search_faq",
+            "arguments": {
+              "query": "能再介绍一下这个商品吗？商品状态、成色、配件"
+            },
+            "status": "completed",
+            "result": {
+              "query": "能再介绍一下这个商品吗？商品状态、成色、配件",
+              "retrieval_mode": "bm25+vector",
+              "embedding_enabled": true,
+              "embedding_status": "active",
+              "items": [
+                {
+                  "id": 4,
+                  "scene": "通用",
+                  "question": "状态如何",
+                  "answer": "状态以视频和实拍图片为准，默认瑕疵",
+                  "keywords": "状态、成色、捏痕、全新",
+                  "enabled": true,
+                  "bm25_score": 13.661428,
+                  "vector_score": 0.591827,
+                  "coarse_score": 0.01627446,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 2,
+                  "scene": "商品成色",
+                  "question": "状态如何？",
+                  "answer": "状态和手感以实拍图和视频为准，默认瑕疵。",
+                  "keywords": "成色 瑕疵 划痕 磕碰",
+                  "enabled": true,
+                  "bm25_score": 11.851146,
+                  "vector_score": 0.687759,
+                  "coarse_score": 0.01624802,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 3,
+                  "scene": "售后边界",
+                  "question": "可以退货吗？",
+                  "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+                  "keywords": "退货 售后 质量",
+                  "enabled": true,
+                  "bm25_score": 3.029289,
+                  "vector_score": 0.549584,
+                  "coarse_score": 0.01587302,
+                  "retrieval_mode": "bm25+vector"
+                }
+              ],
+              "notice": "结果按相关性排序，分数不是置信度；仅使用与当前商品及问题一致的事实，无可靠匹配时请澄清或转人工。"
+            }
+          }
+        ],
+        "tool_status": "completed",
+        "evidence": [
+          {
+            "id": 2,
+            "scene": "商品成色",
+            "question": "状态如何？",
+            "answer": "状态和手感以实拍图和视频为准，默认瑕疵。",
+            "keywords": "成色 瑕疵 划痕 磕碰",
+            "enabled": true,
+            "bm25_score": 4.401549,
+            "vector_score": 0.448015,
+            "coarse_score": 0.01627446,
+            "retrieval_mode": "bm25+vector"
+          },
+          {
+            "id": 3,
+            "scene": "售后边界",
+            "question": "可以退货吗？",
+            "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+            "keywords": "退货 售后 质量",
+            "enabled": true,
+            "bm25_score": 3.029289,
+            "vector_score": 0.488739,
+            "coarse_score": 0.01624802,
+            "retrieval_mode": "bm25+vector"
+          },
+          {
+            "id": 5,
+            "scene": "发货",
+            "question": "发什么快递？",
+            "answer": "一般是圆通和申通，需要其他发货方式请提前说明",
+            "keywords": "",
+            "enabled": true,
+            "bm25_score": 1.771133,
+            "vector_score": 0.411904,
+            "coarse_score": 0.01576141,
+            "retrieval_mode": "bm25+vector"
+          }
+        ],
+        "stages": [
+          {
+            "name": "intent",
+            "label": "意图识别",
+            "detail": "general · 置信度 92%",
+            "status": "completed"
+          },
+          {
+            "name": "rewrite",
+            "label": "多轮改写",
+            "detail": "能再介绍一下这个商品吗？",
+            "status": "completed"
+          },
+          {
+            "name": "recall",
+            "label": "混合粗排",
+            "detail": "BM25 + Embedding 融合 · 召回 5 条",
+            "status": "completed"
+          },
+          {
+            "name": "rerank",
+            "label": "模型精排",
+            "detail": "Top 3 证据已送入回复专家",
+            "status": "completed"
+          },
+          {
+            "name": "reply",
+            "label": "安全生成",
+            "detail": "平台安全规则已校验",
+            "status": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "off_platform",
+      "input": {
+        "id": "off_platform",
+        "message": "可以加微信聊吗？",
+        "item_id": "baseline-item",
+        "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+        "context": [],
+        "bargain_round": 0
+      },
+      "output": {
+        "intent": "general",
+        "confidence": 0.9,
+        "rewritten_query": "可以加微信聊吗？",
+        "reply": "不好意思，咱们就在闲鱼上聊哈，平台内沟通对双方都有保障。有什么问题直接在这里问我就行～",
+        "strategy": {
+          "item_id": "baseline-item",
+          "min_price": 760.0,
+          "max_price": 899.0,
+          "max_bargain_rounds": 3
+        },
+        "reply_policy": {
+          "simulate_human_typing": true,
+          "low_confidence_handoff": false,
+          "confidence_threshold": 0.7,
+          "block_off_platform": true,
+          "night_auto_reply": true
+        },
+        "retrieval_mode": "bm25+vector",
+        "embedding_status": "active",
+        "tool_calls": [
+          {
+            "name": "search_faq",
+            "arguments": {
+              "query": "可以加微信聊吗？"
+            },
+            "status": "completed",
+            "result": {
+              "query": "可以加微信聊吗？",
+              "retrieval_mode": "bm25+vector",
+              "embedding_enabled": true,
+              "embedding_status": "active",
+              "items": [
+                {
+                  "id": 3,
+                  "scene": "售后边界",
+                  "question": "可以退货吗？",
+                  "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+                  "keywords": "退货 售后 质量",
+                  "enabled": true,
+                  "bm25_score": 5.047271,
+                  "vector_score": 0.314488,
+                  "coarse_score": 0.01639344,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 1,
+                  "scene": "发货时效",
+                  "question": "今天拍下什么时候发货？",
+                  "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+                  "keywords": "发货 快递 今天",
+                  "enabled": true,
+                  "bm25_score": 2.211174,
+                  "vector_score": 0.272075,
+                  "coarse_score": 0.01601382,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 5,
+                  "scene": "发货",
+                  "question": "发什么快递？",
+                  "answer": "一般是圆通和申通，需要其他发货方式请提前说明",
+                  "keywords": "",
+                  "enabled": true,
+                  "bm25_score": 0.304379,
+                  "vector_score": 0.299128,
+                  "coarse_score": 0.01585181,
+                  "retrieval_mode": "bm25+vector"
+                }
+              ],
+              "notice": "结果按相关性排序，分数不是置信度；仅使用与当前商品及问题一致的事实，无可靠匹配时请澄清或转人工。"
+            }
+          }
+        ],
+        "tool_status": "completed",
+        "evidence": [
+          {
+            "id": 3,
+            "scene": "售后边界",
+            "question": "可以退货吗？",
+            "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+            "keywords": "退货 售后 质量",
+            "enabled": true,
+            "bm25_score": 5.047271,
+            "vector_score": 0.314488,
+            "coarse_score": 0.01639344,
+            "retrieval_mode": "bm25+vector"
+          },
+          {
+            "id": 1,
+            "scene": "发货时效",
+            "question": "今天拍下什么时候发货？",
+            "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+            "keywords": "发货 快递 今天",
+            "enabled": true,
+            "bm25_score": 2.211174,
+            "vector_score": 0.272075,
+            "coarse_score": 0.01601382,
+            "retrieval_mode": "bm25+vector"
+          },
+          {
+            "id": 5,
+            "scene": "发货",
+            "question": "发什么快递？",
+            "answer": "一般是圆通和申通，需要其他发货方式请提前说明",
+            "keywords": "",
+            "enabled": true,
+            "bm25_score": 0.304379,
+            "vector_score": 0.299128,
+            "coarse_score": 0.01585181,
+            "retrieval_mode": "bm25+vector"
+          }
+        ],
+        "stages": [
+          {
+            "name": "intent",
+            "label": "意图识别",
+            "detail": "general · 置信度 90%",
+            "status": "completed"
+          },
+          {
+            "name": "rewrite",
+            "label": "多轮改写",
+            "detail": "可以加微信聊吗？",
+            "status": "completed"
+          },
+          {
+            "name": "recall",
+            "label": "混合粗排",
+            "detail": "BM25 + Embedding 融合 · 召回 5 条",
+            "status": "completed"
+          },
+          {
+            "name": "rerank",
+            "label": "模型精排",
+            "detail": "Top 3 证据已送入回复专家",
+            "status": "completed"
+          },
+          {
+            "name": "reply",
+            "label": "安全生成",
+            "detail": "平台安全规则已校验",
+            "status": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ambiguous_short",
+      "input": {
+        "id": "ambiguous_short",
+        "message": "怎么说？",
+        "item_id": "baseline-item",
+        "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+        "context": [],
+        "bargain_round": 0
+      },
+      "output": {
+        "intent": "general",
+        "confidence": 0.6,
+        "rewritten_query": "怎么说？",
+        "reply": "你好，没太看懂你的意思～是想问价格、发货还是商品情况？说具体点我帮你看看。",
+        "strategy": {
+          "item_id": "baseline-item",
+          "min_price": 760.0,
+          "max_price": 899.0,
+          "max_bargain_rounds": 3
+        },
+        "reply_policy": {
+          "simulate_human_typing": true,
+          "low_confidence_handoff": false,
+          "confidence_threshold": 0.7,
+          "block_off_platform": true,
+          "night_auto_reply": true
+        },
+        "retrieval_mode": "bm25+vector",
+        "embedding_status": "active",
+        "tool_calls": [
+          {
+            "name": "search_faq",
+            "arguments": {
+              "query": "怎么说？"
+            },
+            "status": "completed",
+            "result": {
+              "query": "怎么说？",
+              "retrieval_mode": "bm25+vector",
+              "embedding_enabled": true,
+              "embedding_status": "active",
+              "items": [
+                {
+                  "id": 5,
+                  "scene": "发货",
+                  "question": "发什么快递？",
+                  "answer": "一般是圆通和申通，需要其他发货方式请提前说明",
+                  "keywords": "",
+                  "enabled": true,
+                  "bm25_score": 2.697413,
+                  "vector_score": 0.364153,
+                  "coarse_score": 0.01639344,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 1,
+                  "scene": "发货时效",
+                  "question": "今天拍下什么时候发货？",
+                  "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+                  "keywords": "发货 快递 今天",
+                  "enabled": true,
+                  "bm25_score": 1.105587,
+                  "vector_score": 0.360674,
+                  "coarse_score": 0.01612903,
+                  "retrieval_mode": "bm25+vector"
+                },
+                {
+                  "id": 3,
+                  "scene": "售后边界",
+                  "question": "可以退货吗？",
+                  "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+                  "keywords": "退货 售后 质量",
+                  "enabled": true,
+                  "bm25_score": 0.28477,
+                  "vector_score": 0.290552,
+                  "coarse_score": 0.01565324,
+                  "retrieval_mode": "bm25+vector"
+                }
+              ],
+              "notice": "结果按相关性排序，分数不是置信度；仅使用与当前商品及问题一致的事实，无可靠匹配时请澄清或转人工。"
+            }
+          }
+        ],
+        "tool_status": "completed",
+        "evidence": [
+          {
+            "id": 5,
+            "scene": "发货",
+            "question": "发什么快递？",
+            "answer": "一般是圆通和申通，需要其他发货方式请提前说明",
+            "keywords": "",
+            "enabled": true,
+            "bm25_score": 2.697413,
+            "vector_score": 0.364153,
+            "coarse_score": 0.01639344,
+            "retrieval_mode": "bm25+vector"
+          },
+          {
+            "id": 1,
+            "scene": "发货时效",
+            "question": "今天拍下什么时候发货？",
+            "answer": "正常 72 小时内发出，急用可以提前告诉我。",
+            "keywords": "发货 快递 今天",
+            "enabled": true,
+            "bm25_score": 1.105587,
+            "vector_score": 0.360674,
+            "coarse_score": 0.01612903,
+            "retrieval_mode": "bm25+vector"
+          },
+          {
+            "id": 3,
+            "scene": "售后边界",
+            "question": "可以退货吗？",
+            "answer": "二手闲置非质量问题不退，签收后请及时验货。",
+            "keywords": "退货 售后 质量",
+            "enabled": true,
+            "bm25_score": 0.28477,
+            "vector_score": 0.290552,
+            "coarse_score": 0.01565324,
+            "retrieval_mode": "bm25+vector"
+          }
+        ],
+        "stages": [
+          {
+            "name": "intent",
+            "label": "意图识别",
+            "detail": "general · 置信度 60%",
+            "status": "completed"
+          },
+          {
+            "name": "rewrite",
+            "label": "多轮改写",
+            "detail": "怎么说？",
+            "status": "completed"
+          },
+          {
+            "name": "recall",
+            "label": "混合粗排",
+            "detail": "BM25 + Embedding 融合 · 召回 5 条",
+            "status": "completed"
+          },
+          {
+            "name": "rerank",
+            "label": "模型精排",
+            "detail": "Top 3 证据已送入回复专家",
+            "status": "completed"
+          },
+          {
+            "name": "reply",
+            "label": "安全生成",
+            "detail": "平台安全规则已校验",
+            "status": "completed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "no_reply_noise",
+      "input": {
+        "id": "no_reply_noise",
+        "message": "[系统消息] 订单状态已更新",
+        "item_id": "baseline-item",
+        "item_desc": "二手数码商品，具体状态以实拍和商品描述为准。",
+        "context": [],
+        "bargain_round": 0
+      },
+      "output": {
+        "intent": "no_reply",
+        "confidence": 0.99,
+        "reply": "-",
+        "stages": [
+          {
+            "name": "intent",
+            "label": "意图识别",
+            "detail": "no_reply · 置信度 99%",
+            "status": "completed"
+          }
+        ],
+        "rewritten_query": "[系统消息] 订单状态已更新",
+        "evidence": []
+      }
+    }
+  ]
+}
