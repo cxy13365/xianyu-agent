@@ -133,6 +133,10 @@ Set-Location D:\xianyu\_agent\services\xianyu-worker
 
 闲鱼网页接口可能变化，也可能触发登录过期、滑块或风控。这些状态需要账号持有人在闲鱼网页端处理，代码不会绕过平台验证。请遵守闲鱼平台规则，仅用于你有权管理的账号。
 
+## 界面展示
+
+![分析流程图](images/workflow.png)
+
 ## 开源说明
 
 闲鱼连接层基于 [shaxiu/XianyuAutoAgent](https://github.com/shaxiu/XianyuAutoAgent)（GPL-3.0）修改；本项目保留完整源码与 `LICENSE`，整体以 GPL-3.0 发布。该项目同时参考了 XianyuAutoAgent README 所注明的 XianYuApis 思路。
