@@ -135,7 +135,19 @@ Set-Location D:\xianyu\_agent\services\xianyu-worker
 
 ## 界面展示
 
-![分析流程图](images/workflow.png)
+工作台
+![实时会话](xianyu/picture/工作台.png)
+实时会话
+![实时会话](xianyu/picture/实时会话.png)
+知识库-知识库设计
+![实时会话](xianyu/picture/知识库设计.png)
+知识库-已启用场景
+![实时会话](xianyu/picture/已启用场景.png)
+策略中心
+![实时会话](xianyu/picture/策略中心.png)
+运行日志
+![实时会话](xianyu/picture/运行日志.png)
+
 
 ## 开源说明
 
